@@ -307,8 +307,8 @@ const ContactForm = () => {
 
   return (
     <div className="bg-[#b2dbff] rounded-lg p-8 shadow-md">
-      <h2 className="text-3xl font-bold mb-2">Send A Message</h2>
-      <p className="text-xl mb-6">I am always here to help you and your pets out!</p>
+      <h2 className="text-2xl font-bold mb-2">Send A Message</h2>
+      <p className="text-lg mb-6">I am always here to help you and your pets out!</p>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
