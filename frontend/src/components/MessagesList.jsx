@@ -190,6 +190,7 @@ const MessagesList = () => {
                       <p><strong>Email:</strong> {message.email}</p>
                       <p><strong>Cell Phone:</strong> {message.phone}</p>
                       <p><strong>Message:</strong> {message.message}</p>
+                      <p><strong>Agreement:</strong> {message.agreement}</p>
                     </div>
                   </td>
                 </tr>
