@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import AboutPage from './components/petCareAbout/AboutPage';
 import ServicesPage from './components/services/ServicesPage';
 import BookingForm from './components/BookingForm';
-import BookingList from './components/BookingList';
+
 import BookingsList from './components/BookingManagement/BookingList'
 
 const App = () => {
@@ -27,7 +27,6 @@ const App = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/bookings" element={<BookingsList />} /> {/* Displays list of bookings */}
-          <Route path="/booking" element={<BookingList />} /> 
           <Route path="/contact" element={<ContactPage />} /> {/* Contact page */}
           <Route path="/view-messages" element={<MessagesList />} /> {/* Displays list of messages */}
         </Routes>
