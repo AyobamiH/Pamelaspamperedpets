@@ -86,7 +86,7 @@ const BookingList = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="overflow-x-auto mt-12">
+    <div className="overflow-x-auto mt-24">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           {/* Table Headers */}
