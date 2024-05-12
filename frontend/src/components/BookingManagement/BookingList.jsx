@@ -87,7 +87,7 @@ const BookingList = () => {
 
   return (
     <div className="overflow-x-auto mt-24">
-      <table className="min-w-full divide-y divide-gray-200">
+      <table className="min-w-full divide-y divide-gray-200 mt-24">
         <thead className="bg-gray-50">
           {/* Table Headers */}
         </thead>
