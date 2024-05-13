@@ -87,9 +87,22 @@ const BookingList = () => {
 
   return (
     <div className="overflow-x-auto mt-24">
-      <table className="min-w-full divide-y divide-gray-200 mt-24">
+      <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
-          {/* Table Headers */}
+          <tr>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Customer Name
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Start
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              End
+            </th>
+            <th scope="col" className="relative px-6 py-3">
+              <span className="sr-only">Expand</span>
+            </th>
+          </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {bookings.map((booking) => (
