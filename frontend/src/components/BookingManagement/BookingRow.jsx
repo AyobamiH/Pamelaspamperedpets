@@ -14,9 +14,21 @@ const BookingRow = ({
     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
       {booking.customerName}
     </td>
-    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+    {/* <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
       {booking.startDateAndTime}
+    </td> */}
+    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+      {new Intl.DateTimeFormat('en-US', {
+        weekday: 'long', // e.g., "Monday"
+        year: 'numeric', // e.g., "2024"
+        month: 'long',   // e.g., "September"
+        day: 'numeric',  // e.g., "1"
+        hour: 'numeric', // e.g., "4 PM"
+        minute: 'numeric', // e.g., "35"
+        hour12: true,    // 12-hour format
+      }).format(new Date(booking.startDateAndTime))}
     </td>
+
     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
       {booking.endDateAndTime}
     </td>
