@@ -87,6 +87,7 @@ const BookingList = () => {
 
   return (
     <div className="overflow-x-auto mt-24">
+      <h2 className="text-2xl font-bold mb-4">Your Bookings</h2>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
