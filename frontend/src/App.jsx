@@ -26,8 +26,8 @@ const App = () => {
           <Route path="/booking-form" element={<BookingForm />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/bookings" element={<BookingList />} /> {/* Displays list of bookings */}
-          <Route path="/booking" element={<BookingsList />} /> 
+          <Route path="/bookings" element={<BookingsList />} /> {/* Displays list of bookings */}
+          <Route path="/booking" element={<BookingList />} /> 
           <Route path="/contact" element={<ContactPage />} /> {/* Contact page */}
           <Route path="/view-messages" element={<MessagesList />} /> {/* Displays list of messages */}
         </Routes>
