@@ -86,7 +86,7 @@ const BookingList = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="overflow-x-auto mt-24">
+    <div className="overflow-x-auto mt-24 min-h-[100vh]">
       <h2 className="text-2xl font-bold mb-4">Your Bookings</h2>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
