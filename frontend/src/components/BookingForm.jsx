@@ -135,7 +135,7 @@ const handleSubmit = async (e) => {
             const response = await bookingServices.createBooking(formData, { withCredentials: true });
 
             // Check if the response status is 200 or any success code.
-            if (response.status === 201) { 
+            if (response.status === 200) { 
                 setStep(5); // Move to the Thank You step.
                 setConfirmationMessage("Your booking has been sent successfully!");
             } else {
