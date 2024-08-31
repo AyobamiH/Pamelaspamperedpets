@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const createBookingUrl = 'http://localhost:5050/api/bookings/create';
-const getAllBookingsUrl = 'http://localhost:5050/api/bookings/getall';
-const updateBookingUrl = 'http://localhost:5050/api/bookings/update'; // Base URL for updating a booking
-const removeABookingUrl = 'http://localhost:5050/api/bookings/delete';
+const createBookingUrl = 'https://backend-c469.onrender.com/api/bookings/create';
+const getAllBookingsUrl = 'https://backend-c469.onrender.com/api/bookings/getall';
+const updateBookingUrl = 'https://backend-c469.onrender.com/api/bookings/update';
+const removeABookingUrl = 'https://backend-c469.onrender.com/api/bookings/delete';
+
 const bookingServices = {
   // Create a new booking
   createBooking: async (bookingData) => {

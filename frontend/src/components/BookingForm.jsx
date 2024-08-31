@@ -104,26 +104,53 @@ const BookingForm = () => {
     );
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (isFormComplete()) {
-      setIsLoading(true);
-      try {
-        await bookingServices.createBooking(formData,{ withCredentials: true });
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (isFormComplete()) {
+  //     setIsLoading(true);
+  //     try {
+  //       await bookingServices.createBooking(formData,{ withCredentials: true });
 
-        setStep(5);
-        setConfirmationMessage("Your booking has been sent successfully!");
-      } catch (error) {
-        console.error('Error sending message:', error);
-        setConfirmationMessage("There was an error sending your booking. Please try again.");
-        setErrorMessage('Error Occurred');
-      } finally {
-        setIsLoading(false);
-      }
+  //       setStep(5);
+  //       setConfirmationMessage("Your booking has been sent successfully!");
+  //     } catch (error) {
+  //       console.error('Error sending message:', error);
+  //       setConfirmationMessage("There was an error sending your booking. Please try again.");
+  //       setErrorMessage('Error Occurred');
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   } else {
+  //     alert('Please fill out all fields and agree to the terms');
+  //   }
+  // }; 
+const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior.
+
+    if (isFormComplete()) { // Check if all required fields are filled out.
+        setIsLoading(true); // Show a loading spinner.
+
+        try {
+            // Send a POST request to the backend API with the form data.
+            const response = await bookingServices.createBooking(formData, { withCredentials: true });
+
+            // Check if the response status is 200 or any success code.
+            if (response.status === 201) { 
+                setStep(5); // Move to the Thank You step.
+                setConfirmationMessage("Your booking has been sent successfully!");
+            } else {
+                throw new Error('Failed to create booking'); // Throw an error if the status is not 200.
+            }
+        } catch (error) {
+            console.error('Error sending booking:', error); // Log the error in the console.
+            setErrorMessage('There was an error sending your booking. Please try again.');
+        } finally {
+            setIsLoading(false); // Hide the loading spinner after the request completes.
+        }
     } else {
-      alert('Please fill out all fields and agree to the terms');
+        alert('Please fill out all required fields before submitting.'); // Alert the user if any field is missing.
     }
-  }; 
+};
 
   const renderFields = (fields) => (
     fields.map(({ label, name, type, isRequired }) => (

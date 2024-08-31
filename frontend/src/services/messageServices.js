@@ -1,8 +1,9 @@
 import axios from "axios";
 
-const createMessageUrl = '/api/messages/send';
-const allMessagesUrl = 'http://localhost:5050/api/messages/all'
-const deleteMessagesUrl = 'http://localhost:5050/api/messages'
+const createMessageUrl = 'https://backend-c469.onrender.com/api/messages/send';
+const allMessagesUrl = 'https://backend-c469.onrender.com/api/messages/all';
+const deleteMessagesUrl = 'https://backend-c469.onrender.com/api/messages/';
+
 const create = async (newMessageObject) => {
     try {
         const response = await axios.post(createMessageUrl, newMessageObject);
