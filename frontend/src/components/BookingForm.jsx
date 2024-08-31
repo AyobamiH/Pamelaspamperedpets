@@ -83,25 +83,25 @@ const BookingForm = () => {
             favoriteThings, vetPermission, additionalNotes,
             idioSyncrasies, alarmInfo, specialRequest } = formData;
     return (
-      customerName?.trim() !== "" &&
-      email?.trim() !== "" &&
-      petsName?.trim() !== "" &&
-      petsAge?.trim() !== "" &&
-      dailyRoutine?.trim() !== "" &&
-      cellPhone?.trim() !== "" &&
-      homePhone?.trim() !== "" &&
-      homeAddress?.trim() !== "" &&
-      emergencyContactNumber?.trim() !== "" &&
-      startDateAndTime?.trim() !== "" &&
-      endDateAndTime?.trim() !== "" &&
-      workPhone?.trim() !== "" &&
-      petsHealth?.trim() !== "" &&
-      favoriteThings?.trim() !== "" &&
-      vetPermission?.trim() !== "" &&
-      additionalNotes?.trim() !== "" &&
-      idioSyncrasies?.trim() !== "" &&
-      alarmInfo?.trim() !== "" &&
-      specialRequest?.trim() !== ""   
+      customerName!== "" &&
+      email!== "" &&
+      petsName!== "" &&
+      petsAge!== "" &&
+      dailyRoutine!== "" &&
+      cellPhone!== "" &&
+      homePhone!== "" &&
+      homeAddress!== "" &&
+      emergencyContactNumber!== "" &&
+      startDateAndTime!== "" &&
+      endDateAndTime!== "" &&
+      workPhone!== "" &&
+      petsHealth!== "" &&
+      favoriteThings!== "" &&
+      vetPermission!== "" &&
+      additionalNotes!== "" &&
+      idioSyncrasies!== "" &&
+      alarmInfo!== "" &&
+      specialRequest!== ""   
     );
   };
 
@@ -192,20 +192,55 @@ const BookingForm = () => {
 //         alert('Please fill out all required fields before submitting.'); // Alert the user if any field is missing.
 //     }
 // };
+  // const renderFields = (fields) => (
+  //   fields.map(({ label, name, type, isRequired }) => (
+  //     <div key={name} className="flex flex-col">
+  //       <FormField
+  //         label={label}
+  //         isRequired={isRequired}
+  //         name={name}
+  //         type={type}
+  //         value={type === 'checkbox' ? formData[name] || false : formData[name] || ''}
+  //         onChange={handleInputChange}
+  //       />
+  //     </div>
+  //   ))
+  // );
+
+
   const renderFields = (fields) => (
-    fields.map(({ label, name, type, isRequired }) => (
-      <div key={name} className="flex flex-col">
+  fields.map(({ label, name, type, isRequired }) => (
+    <div key={name} className="flex flex-col">
+      {type === 'select' ? (
+        <div className="flex flex-col">
+          <label htmlFor={name} className="font-semibold">
+            {label} {isRequired && <span className="text-red-500">*</span>}
+          </label>
+          <select
+            id={name}
+            name={name}
+            value={formData[name] || ''}
+            onChange={handleInputChange}
+            className="border border-gray-300 rounded p-2"
+          >
+            <option value="" disabled>Select an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      ) : (
         <FormField
           label={label}
           isRequired={isRequired}
           name={name}
           type={type}
-          value={type === 'checkbox' ? formData[name] || false : formData[name] || ''}
+          value={formData[name] || ''}
           onChange={handleInputChange}
         />
-      </div>
-    ))
-  );
+      )}
+    </div>
+  ))
+);
 
   const customerFields = [
     { label: 'Customer Name', name: 'customerName', type: 'text', isRequired: true },
