@@ -112,7 +112,7 @@ const BookingForm = () => {
   if (isFormComplete()) {
     setIsLoading(true);
     try {
-      const response = await fetch('/bookings/create', {
+      const response = await fetch('https://backend-c469.onrender.com/bookings/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,8 +130,7 @@ const BookingForm = () => {
       }
     } catch (error) {
       console.error('Error sending booking:', error);
-      setErrorMessage("There was an error sending your booking. Please try again.");
-      // setConfirmationMessage("There was an error sending your booking. Please try again.");
+      setConfirmationMessage("There was an error sending your booking. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -200,7 +199,7 @@ const BookingForm = () => {
           isRequired={isRequired}
           name={name}
           type={type}
-          value={formData[name] || ''}
+          value={type === 'checkbox' ? formData[name] || false : formData[name] || ''}
           onChange={handleInputChange}
         />
       </div>
@@ -224,7 +223,7 @@ const BookingForm = () => {
     { label: 'Health Information', name: 'petsHealth', type: 'textarea', isRequired: true },
     { label: 'Favorite Things', name: 'favoriteThings', type: 'textarea', isRequired: true },
     { label: 'Idiosyncrasies', name: 'idioSyncrasies', type: 'textarea', isRequired: true },
-    { label: 'Permission to take to vet?', name: 'vetPermission', type: 'textarea', isRequired: true },
+    { label: 'Permission to take to vet?', name: 'vetPermission', type: 'checkbox', isRequired: true },
   ];
 
   const sittingFields = [
