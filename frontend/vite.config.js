@@ -42,7 +42,7 @@ export default defineConfig({
 //   plugins: [react()],
 //   server: {
 //     proxy: {
-//       '/api': 'https://backend-c469.onrender.com', // Adjust this to match your backend URL
+//       '/api': 'https://backend-c469.onrender.com/', // Adjust this to match your backend URL
 //     },
 //   },
 // });

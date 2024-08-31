@@ -132,7 +132,7 @@ const handleSubmit = async (e) => {
 
         try {
             // Send a POST request to the backend API with the form data.
-            const response = await bookingServices.createBooking(formData, { withCredentials: true });
+            const response = await bookingServices.createBooking(formData);
 
             // Check if the response status is 200 or any success code.
             if (response.status === 200) { 
