@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Import your services and components
 import NavigationMenu from './components/NavigationMenu';
 import LandingPages from './components/LandingPage';
@@ -17,7 +17,7 @@ import BookingsList from './components/BookingManagement/BookingList'
 const App = () => {
 
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <NavigationMenu />
         <Routes>
@@ -33,7 +33,7 @@ const App = () => {
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
