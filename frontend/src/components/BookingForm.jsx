@@ -112,7 +112,7 @@ const BookingForm = () => {
   if (isFormComplete()) {
     setIsLoading(true);
     try {
-      const response = await fetch('https://backend-c469.onrender.com/bookings/create', {
+      const response = await fetch('/bookings/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,8 @@ const BookingForm = () => {
       }
     } catch (error) {
       console.error('Error sending booking:', error);
-      setConfirmationMessage("There was an error sending your booking. Please try again.");
+      setErrorMessage("There was an error sending your booking. Please try again.");
+      // setConfirmationMessage("There was an error sending your booking. Please try again.");
     } finally {
       setIsLoading(false);
     }
