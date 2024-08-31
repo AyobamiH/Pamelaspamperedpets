@@ -224,7 +224,7 @@ const BookingForm = () => {
     { label: 'Health Information', name: 'petsHealth', type: 'textarea', isRequired: true },
     { label: 'Favorite Things', name: 'favoriteThings', type: 'textarea', isRequired: true },
     { label: 'Idiosyncrasies', name: 'idioSyncrasies', type: 'textarea', isRequired: true },
-    { label: 'Permission to take to vet?', name: 'vetPermission', type: 'checkbox', isRequired: true },
+    { label: 'Permission to take to vet?', name: 'vetPermission', type: 'boolean', isRequired: true },
   ];
 
   const sittingFields = [
@@ -337,7 +337,7 @@ const BookingForm = () => {
                 <p><strong>Health Information:</strong> {formData.petsHealth}</p>
                 <p><strong>Favorite Things:</strong> {formData.favoriteThings}</p>
                 <p><strong>Idiosyncrasies:</strong> {formData.idioSyncrasies}</p>
-                <p><strong>Permission to take to vet:</strong> {formData.vetPermission}</p>
+                <p><strong>Permission to take to vet:</strong> {formData.vetPermission ? true : false}</p>
                 
                 <h3 className="text-lg font-semibold mt-6 mb-4">Sitting Information</h3>
                 <p><strong>Start Date and Time:</strong> {formData.startDateAndTime}</p>
