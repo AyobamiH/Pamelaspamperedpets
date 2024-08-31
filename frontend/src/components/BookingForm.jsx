@@ -45,10 +45,11 @@ const BookingForm = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const sanitizedValue = name.includes('Phone') ? value.replace(/\D/g, '') : value;
-    setFormData(prevState => ({ ...prevState, [name]: sanitizedValue }));
-  };
+  const { name, type, checked, value } = e.target;
+  const sanitizedValue = type === 'checkbox' ? checked : value;
+  console.log(`Field ${name} changed to:`, sanitizedValue); // Debugging log
+  setFormData(prevState => ({ ...prevState, [name]: sanitizedValue }));
+};
 
   const resetForm = () => {
     setFormData({
@@ -108,7 +109,7 @@ const BookingForm = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-
+    console.log('Form Data before submit:', formData); // Debugging log
   if (isFormComplete()) {
     setIsLoading(true);
     try {
