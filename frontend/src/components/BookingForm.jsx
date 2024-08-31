@@ -109,7 +109,7 @@ const BookingForm = () => {
     if (isFormComplete()) {
       setIsLoading(true);
       try {
-        await bookingServices.createBooking(formData,{ withCredentials: true });
+        await bookingServices.createBooking(formData);
 
         setStep(5);
         setConfirmationMessage("Your booking has been sent successfully!");
