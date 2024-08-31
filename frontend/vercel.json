@@ -1,0 +1,13 @@
+
+{
+  "version": 2,
+
+  "builds": [
+    { "src": "*.js", "use": "@vercel/node" }
+  ],
+
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" },
+    { "source": "/api/(.*)", "destination": "https://pamelas-pampered-pets-website-1.onrender.com/api/:path*" }
+  ]
+}
