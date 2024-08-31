@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const createBookingUrl = 'https://backend-c469.onrender.com/api/bookings/create';
-const getAllBookingsUrl = 'https://backend-c469.onrender.com/api/bookings/getall';
-const updateBookingUrl = 'https://backend-c469.onrender.com/api/bookings/update';
-const removeABookingUrl = 'https://backend-c469.onrender.com/api/bookings/delete';
+const createBookingUrl = 'https://backend-c469.onrender.com/bookings/create';
+const getAllBookingsUrl = 'https://backend-c469.onrender.com/bookings/getall';
+const updateBookingUrl = 'https://backend-c469.onrender.com/bookings/update';
+const removeABookingUrl = 'https://backend-c469.onrender.com/bookings/delete';
 
 const bookingServices = {
   // Create a new booking
