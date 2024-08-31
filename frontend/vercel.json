@@ -7,7 +7,6 @@
   ],
 
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" },
-    { "source": "/api/(.*)", "destination": "https://pamelas-pampered-pets-website-1.onrender.com/api/:path*" }
+    { "source": "/(.*)", "destination": "/" }
   ]
 }
