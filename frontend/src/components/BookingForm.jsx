@@ -104,26 +104,62 @@ const BookingForm = () => {
     );
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (isFormComplete()) {
-      setIsLoading(true);
-      try {
-        await bookingServices.createBooking(formData);
 
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (isFormComplete()) {
+    setIsLoading(true);
+    try {
+      const response = await fetch('https://backend-c469.onrender.com/bookings/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Booking created:', result);
         setStep(5);
         setConfirmationMessage("Your booking has been sent successfully!");
-      } catch (error) {
-        console.error('Error sending message:', error);
-        setConfirmationMessage("There was an error sending your booking. Please try again.");
-        setErrorMessage('Error Occurred');
-      } finally {
-        setIsLoading(false);
+      } else {
+        throw new Error('Failed to create booking');
       }
-    } else {
-      alert('Please fill out all fields and agree to the terms');
+    } catch (error) {
+      console.error('Error sending booking:', error);
+      setConfirmationMessage("There was an error sending your booking. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
-  }; 
+  } else {
+    alert('Please fill out all fields and agree to the terms');
+  }
+};
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (isFormComplete()) {
+  //     setIsLoading(true);
+  //     try {
+  //       await bookingServices.createBooking(formData);
+
+  //       setStep(5);
+  //       setConfirmationMessage("Your booking has been sent successfully!");
+  //     } catch (error) {
+  //       console.error('Error sending message:', error);
+  //       setConfirmationMessage("There was an error sending your booking. Please try again.");
+  //       setErrorMessage('Error Occurred');
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   } else {
+  //     alert('Please fill out all fields and agree to the terms');
+  //   }
+  // }; 
 
 
 
